@@ -1,0 +1,38 @@
+{
+    "users":[
+        {
+          "userId":"0",
+          "userName":"Admin",
+          "password":"Admin",
+          "role":"admin"
+        },{
+            "userId":"1",
+            "userName":"User",
+            "password":"User",
+            "role":"user"
+          }
+    ],
+    "cards":[
+        {
+            "id":"0",
+            "userId":"0",
+            "title":"Klausimas0",
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, soluta?"
+        },{
+            "id":"1",
+            "userId":"1",
+            "title":"Klausimas1",
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, soluta?"
+        },{
+            "id":"2",
+            "userId":"0",
+            "title":"Klausimas2",
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, soluta?"
+        },{
+            "id":"3",
+            "userId":"1",
+            "title":"Klausimas3",
+            "description":"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias, soluta?"
+        }
+    ]
+}
