@@ -1,5 +1,7 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
+import UsersContext from "../../contexts/UsersContext";
+import { useContext } from "react";
 
 const StyledHeader = styled.header`
    padding: 0 20px;
@@ -10,7 +12,7 @@ const StyledHeader = styled.header`
    justify-content: space-between;
    align-items: center;
    
-   >div{
+   >div:nth-child(1){
     height: 80%;
     >a{
         >img{
@@ -42,13 +44,23 @@ const StyledHeader = styled.header`
        } 
     }
    }
+
+   > div:nth-child(3){
+    display: flex;
+    gap: 10px;
+    align-items: center;
+   }
 `;
 
 const Header = () => {
+
+    const navigate = useNavigate();
+    const { loggedInUser, setLoggedInUser } = useContext(UsersContext);
+
     return ( 
         <StyledHeader>
             <div>
-                <Link>
+                <Link to='/'>
                     <img 
                     src="https://www.freelogodesign.org/assets/img/home/icones/free.svg" 
                     alt="freeLogo" 
@@ -65,7 +77,18 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-            <nav>
+            {
+                loggedInUser ?
+                <div>
+                   <span>{loggedInUser.userName}</span> 
+                   <button
+                    onClick={() => {
+                        setLoggedInUser(false);
+                        navigate('/');
+                    }}
+                   >Log Out</button>
+                </div> :
+                <nav>
                 <ul>
                     <li>
                         <NavLink to='/user/register'>Register</NavLink>
@@ -75,6 +98,8 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
+
+            }
         </StyledHeader>
      );
 }
