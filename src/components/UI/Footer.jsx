@@ -47,7 +47,7 @@ const Footer = () => {
     return ( 
         <StyledFooter>
             <div>
-                <Link>
+                <Link to='/'>
                     <img 
                     src="https://www.freelogodesign.org/assets/img/home/icones/free.svg" 
                     alt="freeLogo" 
