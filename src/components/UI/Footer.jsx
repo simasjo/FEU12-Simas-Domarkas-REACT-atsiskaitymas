@@ -64,12 +64,12 @@ const Footer = () => {
             <ul>
                 <li>Socials</li>
                 <li>
-                <Link><i class="bi bi-facebook"></i></Link>
-                <Link><i class="bi bi-instagram"></i></Link>
+                <Link><i className="bi bi-facebook"></i></Link>
+                <Link><i className="bi bi-instagram"></i></Link>
                 </li>
                 <li>
-                <Link><i class="bi bi-twitter-x"></i></Link>
-                <Link><i class="bi bi-linkedin"></i></Link>
+                <Link><i className="bi bi-twitter-x"></i></Link>
+                <Link><i className="bi bi-linkedin"></i></Link>
                 </li>
             </ul>
         </StyledFooter>        
