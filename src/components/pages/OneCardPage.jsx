@@ -60,7 +60,7 @@ const OneCardPage = () => {
         }
       </div>
     </StyledSection>
-  );
+  ); 
 }
  
 export default OneCardPage;
