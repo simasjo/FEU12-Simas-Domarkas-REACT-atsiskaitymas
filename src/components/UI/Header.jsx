@@ -86,6 +86,12 @@ const Header = () => {
             {
                 loggedInUser ?
                 <div>
+                    {
+                        loggedInUser.role === 'admin' &&
+                       <p>
+                        <Link to={'/user/adminPanel'}>Admin Panel</Link>
+                       </p> 
+                    }
                    <p>
                     <Link to={`/user/${loggedInUser.userName}`}>{loggedInUser.userName}</Link>
                     </p> 

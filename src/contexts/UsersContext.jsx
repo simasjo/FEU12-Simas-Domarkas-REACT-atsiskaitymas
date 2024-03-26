@@ -4,7 +4,8 @@ const UsersContext = createContext();
 
 export const UsersActionTypes = {
     getAll: 'fetches all data on initial load',
-    addNew: 'adds new user to the data'
+    addNew: 'adds new user to the data',
+    changeData: 'change one piece of user data'
 }
 
 const reducer = (state, action) => {
@@ -19,7 +20,25 @@ const reducer = (state, action) => {
                },
                body: JSON.stringify(action.data)
             });
-            return [...state, action.data]
+            return [...state, action.data];
+        case UsersActionTypes.changeData:
+            fetch(`http://localhost:8080/users/${action.id}`,{
+              method: "PATCH",
+              headers:{
+                "Content-Type":"application/json"
+              },
+              body: JSON.stringify(action.data) 
+            });
+            return state.map(el => {
+                if(el.id === action.id){
+                   return {
+                    ...el,
+                    ...action.data
+                   } 
+                } else {
+                    return el;
+                }
+            })
         default:
             console.error(`No such reducer actions: ${action.type}`);
             return state;

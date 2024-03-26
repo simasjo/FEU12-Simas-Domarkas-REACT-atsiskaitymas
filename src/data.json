@@ -12,7 +12,7 @@
       "userName": "User",
       "password": "$2a$08$uNJ/ZzpfbHP4DElxEaJGgecEzSt7ZqLKVWrlChBbR1Fhk4nF3XtRC",
       "passwordNoHash": "User",
-      "role": "user"
+      "role": "admin"
     },
     {
       "id": "8ad29a06-5bbb-4d14-8676-d518fb14fc79",
