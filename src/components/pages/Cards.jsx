@@ -37,7 +37,7 @@ const Cards = () => {
     const { cards } = useContext(CardsContext);
     const { loggedInUser } = useContext(UsersContext);
     const location = useLocation();
-    console.log(location);
+    
 
     return ( 
         <StyledSection>
