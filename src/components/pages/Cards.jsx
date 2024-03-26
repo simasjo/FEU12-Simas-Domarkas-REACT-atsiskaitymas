@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CardsContext from "../../contexts/CardsContext";
 import Card from "../UI/Card";
 import styled from "styled-components";
@@ -36,6 +36,8 @@ const Cards = () => {
 
     const { cards } = useContext(CardsContext);
     const { loggedInUser } = useContext(UsersContext);
+    const location = useLocation();
+    console.log(location);
 
     return ( 
         <StyledSection>
@@ -49,6 +51,7 @@ const Cards = () => {
                     <Card
                     key={card.id}
                     data={card}
+                    location={location}
                     />
                     )
             }

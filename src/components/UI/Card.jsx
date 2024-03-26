@@ -3,6 +3,7 @@ import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import CardsContext from "../../contexts/CardsContext";
 import { CardsActionTypes } from "../../contexts/CardsContext";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
    border: 1px solid black;
@@ -22,7 +23,7 @@ const StyledDiv = styled.div`
    }
 `;
 
-const Card = ({ data }) => {
+const Card = ({ data, location }) => {
 
    const { setCards } = useContext(CardsContext);
    const { loggedInUser } = useContext(UsersContext);
@@ -31,7 +32,9 @@ const Card = ({ data }) => {
         <StyledDiv>
         <h3>{data.title}</h3>
         <p>{data.description}</p>
+        <Link to={`/cards/${data.id}`}>More info...</Link>
         {
+         location.pathname !== "/cards/allCards" &&
          loggedInUser.id === data.userId &&
          <button
          onClick={() => { 
