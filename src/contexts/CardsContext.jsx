@@ -4,7 +4,8 @@ const CardsContext = createContext();
 
 export const CardsActionTypes = {
     getAll: 'fetches all data on initial load',
-    addNew: 'adds new card to the data'
+    addNew: 'adds new card to the data',
+    delete: 'delete one specific card'
 }
 
 const reducer = (state, action) => {
@@ -20,6 +21,10 @@ const reducer = (state, action) => {
                 body: JSON.stringify(action.data)
             });
             return [...state, action.data];
+        case CardsActionTypes.delete:
+            fetch(`http://localhost:8080/cards/${action.id}` ,{ method: "DELETE"})
+            return state.filter(el => el.id !== action.id);
+
         default:
             console.error(`No such reducer actions: ${action.type}`);
             return state;
