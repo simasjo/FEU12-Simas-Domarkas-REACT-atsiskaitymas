@@ -49,6 +49,12 @@ const StyledHeader = styled.header`
     display: flex;
     gap: 10px;
     align-items: center;
+    >p{
+        >a{
+            color: black;
+            text-decoration: none;
+        }
+    }
    }
 `;
 
@@ -80,7 +86,9 @@ const Header = () => {
             {
                 loggedInUser ?
                 <div>
-                   <span>{loggedInUser.userName}</span> 
+                   <p>
+                    <Link to={`/user/${loggedInUser.userName}`}>{loggedInUser.userName}</Link>
+                    </p> 
                    <button
                     onClick={() => {
                         setLoggedInUser(false);

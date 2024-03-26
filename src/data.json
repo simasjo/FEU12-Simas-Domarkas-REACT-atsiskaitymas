@@ -3,25 +3,36 @@
     {
       "id": "0",
       "userName": "Admin",
-      "password": "Admin",
+      "password": "$2a$08$pqVK1xptQDvjT4eiUhn0wu/.LDAXd/kB6onK7vWeujVIk1S6HdIim",
+      "passwordNoHash": "Admin",
       "role": "admin"
     },
     {
       "id": "1",
       "userName": "User",
-      "password": "User",
+      "password": "$2a$08$uNJ/ZzpfbHP4DElxEaJGgecEzSt7ZqLKVWrlChBbR1Fhk4nF3XtRC",
+      "passwordNoHash": "User",
       "role": "user"
     },
     {
       "id": "8ad29a06-5bbb-4d14-8676-d518fb14fc79",
       "userName": "Petriukas",
-      "password": "Labas123*",
+      "password": "$2a$08$YMtkVCr.fUQdD/3YlD46guxdZq3Dyr7Kr0t.2o1ZkRdGk5AR6SwC.",
+      "passwordNoHash": "Labas123*",
       "role": "user"
     },
     {
       "id": "c1303563-649f-4553-98ff-efa78e7cbcef",
       "userName": "Jonukas",
-      "password": "Labas123*",
+      "password": "$2a$08$pLgjGhhWyWrqhGGMvvInGen2EOQ6KRTuOhFCXOcTr.HqspdF.p6dq",
+      "passwordNoHash": "Labas123*",
+      "role": "user"
+    },
+    {
+      "id": "c910212f-ed7c-4984-b374-c352b0046579",
+      "userName": "Deivixas",
+      "password": "$2a$08$SI.1Dm76QRtTB5/NRRe1lu98ugpZ8l.or6zsomfblhySfJz6v68b6",
+      "passwordNoHash": "Deiviukas123*",
       "role": "user"
     }
   ],
@@ -49,6 +60,12 @@
       "userId": "c1303563-649f-4553-98ff-efa78e7cbcef",
       "title": "sasdasdasd",
       "description": "asdasdasdasdas"
+    },
+    {
+      "id": "a1f567e5-a9ec-4d18-83a1-39b9d19ec94e",
+      "userId": "0",
+      "title": "sdsdfds",
+      "description": "fsfdfsdfsdf"
     }
   ]
 }

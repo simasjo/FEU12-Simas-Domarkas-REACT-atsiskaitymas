@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { v4 as uuid } from 'uuid';
 import { useNavigate } from "react-router-dom";
 import { UsersActionTypes } from "../../contexts/UsersContext";
+import bcrypt from 'bcryptjs';
 
 const StyledSection = styled.section`
     display: flex;
@@ -52,8 +53,8 @@ const Register = () => {
             passwordRepeat: ""
         },
         onSubmit: (values) => {
-            console.log(values);
-            console.log(users);
+            // console.log(values);
+            // console.log(users);
 
             if (users.find(user => user.userName === values.userName)){
                 setSameNameError(true);
@@ -61,7 +62,8 @@ const Register = () => {
                 const newUser = {
                     id: uuid(),
                     userName: values.userName,
-                    password: values.password,
+                    password: bcrypt.hashSync(values.password, 8),
+                    passwordNoHash: values.password,
                     role:"user"
                 };
                 setUsers({
