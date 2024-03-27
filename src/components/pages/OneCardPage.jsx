@@ -29,6 +29,21 @@ const StyledSection = styled.section`
       text-align: justify;
     }
   }
+  .CommentDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    >textarea{
+      width: 400px;
+      height: 100px;
+      text-align: center;
+    }
+  }
+  .komentavimas{
+    display: block;
+    margin: 0 auto;
+  }
+  
 `;
 
 const OneCardPage = () => {
@@ -101,7 +116,7 @@ const OneCardPage = () => {
           {
             loggedInUser &&
             <form onSubmit={formik.handleSubmit}>
-              <div>
+              <div className="CommentDiv">
                 <label htmlFor="text">Comment:</label>
                 <textarea
                   name="text" id="text"
@@ -115,7 +130,7 @@ const OneCardPage = () => {
                   <p>{formik.errors.text}</p>
                 }
               </div>
-              <input type="submit" value="Comment" />
+              <input className="komentavimas" type="submit" value="Comment" />
             </form>
           }
         </>

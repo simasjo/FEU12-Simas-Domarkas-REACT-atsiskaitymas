@@ -21,6 +21,18 @@ const StyledDiv = styled.div`
     margin: 0;
     text-align: justify;
    }
+   .edit-modal{
+    display: flex;
+    flex-direction: column;
+    > input{
+     text-align: center;
+    }
+    > textarea{
+      text-align: center;
+      width: 100%;
+      height: 200px;
+    }
+   }
 `;
 
 const EditModal = ({ isOpen, onClose, onSave }) => {
@@ -30,7 +42,10 @@ const EditModal = ({ isOpen, onClose, onSave }) => {
   const handleSave = () => {
     onSave(title, description);
     onClose();
+    setTitle("");
+    setDescription("");
   };
+  
 
   return isOpen ? (
     <div className="edit-modal">
