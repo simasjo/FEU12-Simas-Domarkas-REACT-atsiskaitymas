@@ -7,6 +7,7 @@ export const CardsActionTypes = {
   addNew: 'adds new card to the data',
   delete: 'delete one specific card',
   edit: 'edit one specific card',
+  editComment: 'edit one specific comment',
   addComment: 'add new comment to a specific card',
   deleteComment: 'delete one specific comment from a card'
 }
@@ -47,6 +48,40 @@ const reducer = (state, action) => {
           body: JSON.stringify(action.data)
         });
         return updatedCards;
+
+       // CardsContext.js
+
+case CardsActionTypes.editComment:
+  const cardToEditComment = state.find(el => el.id === action.cardId);
+  const commentIndex = cardToEditComment.comments.findIndex(comment => comment.id === action.commentId);
+  if (commentIndex === -1) {
+    console.error('Komentaras nerastas.');
+    return state;
+  }
+  const updatedComments = [...cardToEditComment.comments];
+  updatedComments[commentIndex] = {
+    ...updatedComments[commentIndex],
+    ...action.data
+  };
+  const updatedCardWithComment = {
+    ...cardToEditComment,
+    comments: updatedComments
+  };
+  fetch(`http://localhost:8080/cards/${action.cardId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updatedCardWithComment)
+  });
+  return state.map(el => {
+    if (el.id === action.cardId) {
+      return updatedCardWithComment;
+    } else {
+      return el;
+    }
+  });
+
       
 
     case CardsActionTypes.addComment:
