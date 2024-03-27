@@ -1,5 +1,5 @@
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import CardsContext from "../../contexts/CardsContext";
 import { CardsActionTypes } from "../../contexts/CardsContext";
@@ -23,30 +23,68 @@ const StyledDiv = styled.div`
    }
 `;
 
+const EditModal = ({ isOpen, onClose, onSave }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleSave = () => {
+    onSave(title, description);
+    onClose();
+  };
+
+  return isOpen ? (
+    <div className="edit-modal">
+      <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+      <button onClick={handleSave}>Save</button>
+      <button onClick={onClose}>Cancel</button>
+    </div>
+  ) : null;
+};
+
 const Card = ({ data, location }) => {
+  const { setCards } = useContext(CardsContext);
+  const { loggedInUser } = useContext(UsersContext);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-   const { setCards } = useContext(CardsContext);
-   const { loggedInUser } = useContext(UsersContext);
+  const handleEdit = () => {
+    setIsEditModalOpen(true);
+  };
 
-    return ( 
-        <StyledDiv>
-        <h3>{data.title}</h3>
-        <p>{data.description}</p>
-        <Link to={`/cards/${data.id}`}>More info...</Link>
-        {
-         location.pathname !== "/cards/allCards" &&
-         loggedInUser.id === data.userId &&
-         <button
-         onClick={() => { 
+  const handleSaveEdit = (title, description) => {
+    setCards({
+      type: CardsActionTypes.edit,
+      id: data.id,
+      data: {
+        title: title,
+        description: description
+      }
+    });
+  };
+
+  return ( 
+    <StyledDiv>
+      <h3>{data.title}</h3>
+      <p>{data.description}</p>
+      <Link to={`/cards/${data.id}`}>More info...</Link>
+      {location.pathname !== "/cards/allCards" && loggedInUser.id === data.userId && (
+        <>
+          <button onClick={() => { 
             setCards({
-               type: CardsActionTypes.delete,
-               id: data.id
-            })
-         }}
-        >Delete</button>
-        }
-        </StyledDiv>
-     );
-}
+              type: CardsActionTypes.delete,
+              id: data.id
+            });
+          }}>Delete</button>
+          <button onClick={handleEdit}>Edit</button>
+        </>
+      )}
+      <EditModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        onSave={handleSaveEdit}
+      />
+    </StyledDiv>
+  );
+};
  
 export default Card;

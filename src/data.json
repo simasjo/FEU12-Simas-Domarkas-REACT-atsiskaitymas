@@ -51,24 +51,6 @@
       ]
     },
     {
-      "id": "2",
-      "userId": "0",
-      "title": "Title2",
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto.",
-      "comments": [
-        {
-          "id": "0",
-          "authorId": "0",
-          "text": "That's the smartest thing I've seen today."
-        },
-        {
-          "id": "1",
-          "authorId": "1",
-          "text": "Is that Latin?"
-        }
-      ]
-    },
-    {
       "id": "3",
       "userId": "1",
       "title": "Title3",
@@ -94,35 +76,20 @@
       "description": "super not fun\n"
     },
     {
-      "id": "df3b4a1c-2881-433e-adf7-09ec971b72cc",
-      "userId": "0",
-      "title": "Nauja korta",
-      "description": "All hail admins",
-      "comments": [
-        {
-          "id": "0",
-          "authorId": "0",
-          "text": "Yes, very smart idea"
-        },
-        {
-          "id": "1",
-          "authorId": "670a432b-ffbf-40dc-919c-7479b2d4a005",
-          "text": "NOOOO!!! Fight the system!!!"
-        }
-      ]
+      "title": "Tu zinok cia ne pabaiga",
+      "description": "manau kad per gerai cia viskas isejo",
+      "id": "df3b4a1c-2881-433e-adf7-09ec971b72cc"
     },
     {
-      "id": "5931d1fd-ab34-4a07-8f86-025a8b89abc7",
+      "title": "DFGDGDFGDFG",
+      "description": "DFGDFGDFGDFGDFGDFGDFGDFGFVBNVBNVBFVHFDG555222",
+      "id": "9e00fdde-a7a0-4ef6-a4ee-3d870ff68c45"
+    },
+    {
+      "id": "65672c46-1e10-4497-b7e9-5f146801ee19",
       "userId": "0",
-      "title": "Naujas",
-      "description": "kazkas nutiko kazkur?",
-      "comments": [
-        {
-          "text": "naujas comm",
-          "id": "5e1106ed-b40f-405c-96d3-abac8d52196c",
-          "authorId": "0"
-        }
-      ]
+      "title": "gffgfg",
+      "description": "bfgbfgfgbfbfgb"
     }
   ]
 }
