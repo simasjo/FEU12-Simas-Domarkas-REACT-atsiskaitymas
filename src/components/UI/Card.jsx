@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import UsersContext from "../../contexts/UsersContext";
 import CardsContext from "../../contexts/CardsContext";
@@ -6,33 +6,33 @@ import { CardsActionTypes } from "../../contexts/CardsContext";
 import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
-   border: 1px solid black;
-   padding: 10px 20px;
+  border: 1px solid black;
+  padding: 10px 20px;
 
-   display: flex;
-   flex-direction: column;
-   gap: 10px;
-   align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 
-   > h3{
+  > h3 {
     margin: 0;
-   }
-   > p{
+  }
+  > p {
     margin: 0;
     text-align: justify;
-   }
-   .edit-modal{
+  }
+  .edit-modal {
     display: flex;
     flex-direction: column;
-    > input{
-     text-align: center;
+    > input {
+      text-align: center;
     }
-    > textarea{
+    > textarea {
       text-align: center;
       width: 100%;
       height: 200px;
     }
-   }
+  }
 `;
 
 const EditModal = ({ isOpen, onClose, onSave }) => {
@@ -45,12 +45,20 @@ const EditModal = ({ isOpen, onClose, onSave }) => {
     setTitle("");
     setDescription("");
   };
-  
 
   return isOpen ? (
     <div className="edit-modal">
-      <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <textarea
+        placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
       <button onClick={handleSave}>Save</button>
       <button onClick={onClose}>Cancel</button>
     </div>
@@ -61,6 +69,19 @@ const Card = ({ data, location }) => {
   const { setCards } = useContext(CardsContext);
   const { loggedInUser } = useContext(UsersContext);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [likes, setLikes] = useState(
+    () => parseInt(localStorage.getItem(`likes_${data.id}`)) || data.likes || 0
+  );
+  const [dislikes, setDislikes] = useState(
+    () => parseInt(localStorage.getItem(`dislikes_${data.id}`)) || data.dislikes || 0
+  );
+  const [liked, setLiked] = useState(false);
+  const [disliked, setDisliked] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem(`likes_${data.id}`, likes);
+    localStorage.setItem(`dislikes_${data.id}`, dislikes);
+  }, [likes, dislikes, data.id]);
 
   const handleEdit = () => {
     setIsEditModalOpen(true);
@@ -72,24 +93,46 @@ const Card = ({ data, location }) => {
       id: data.id,
       data: {
         title: title,
-        description: description
-      }
+        description: description,
+      },
     });
   };
 
-  return ( 
+  const handleLike = () => {
+    if (!liked) {
+      setLikes(likes + 1);
+      setLiked(true);
+    }
+  };
+
+  const handleDislike = () => {
+    if (!disliked) {
+      setDislikes(dislikes + 1);
+      setDisliked(true);
+    }
+  };
+
+  return (
     <StyledDiv>
       <h3>{data.title}</h3>
       <p>{data.description}</p>
+      <div>
+        <button onClick={handleLike}>{liked ? "Liked" : "Like"} ({likes})</button>
+        <button onClick={handleDislike}>{disliked ? "Disliked" : "Dislike"} ({dislikes})</button>
+      </div>
       <Link to={`/cards/${data.id}`}>More info...</Link>
       {location.pathname !== "/cards/allCards" && loggedInUser.id === data.userId && (
         <>
-          <button onClick={() => { 
-            setCards({
-              type: CardsActionTypes.delete,
-              id: data.id
-            });
-          }}>Delete</button>
+          <button
+            onClick={() => {
+              setCards({
+                type: CardsActionTypes.delete,
+                id: data.id,
+              });
+            }}
+          >
+            Delete
+          </button>
           <button onClick={handleEdit}>Edit</button>
         </>
       )}
@@ -101,5 +144,5 @@ const Card = ({ data, location }) => {
     </StyledDiv>
   );
 };
- 
+
 export default Card;

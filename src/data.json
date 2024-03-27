@@ -44,35 +44,19 @@
       "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto.",
       "comments": [
         {
-          "text": "dfhfhgfhfghf",
-          "id": "61d46773-5a85-420c-a3e1-e60602b3458a",
+          "text": "ramtngbc v",
+          "id": "d410a6d1-cc6f-45f0-984a-c7e9295b0d29",
           "authorId": "0"
         }
-      ]
-    },
-    {
-      "id": "e3781789-2988-48f0-8423-ba7ec3acab19",
-      "userId": "670a432b-ffbf-40dc-919c-7479b2d4a005",
-      "title": "Jelly Fish Hunting",
-      "description": "It's super fun!!!",
-      "comments": [
-        {
-          "text": "What equipment do you need to do that?",
-          "id": "f38b2262-cbae-41a7-a33c-2be8bc46227a",
-          "authorId": "0"
-        }
-      ]
+      ],
+      "likes": 0,
+      "dislikes": 0
     },
     {
       "id": "6608bb05-29f2-4687-985a-31066599491b",
       "userId": "1",
       "title": "hihihaha",
       "description": "super not fun\n"
-    },
-    {
-      "title": "Tu zinok cia ne pabaiga",
-      "description": "manau kad per gerai cia viskas isejo",
-      "id": "df3b4a1c-2881-433e-adf7-09ec971b72cc"
     },
     {
       "title": "DFGDGDFGDFG",
@@ -87,20 +71,9 @@
       ]
     },
     {
-      "title": "Gal jau bus geriau?",
-      "description": "Manau kad sitas tekstas kur kas geresnis",
-      "id": "65672c46-1e10-4497-b7e9-5f146801ee19"
-    },
-    {
       "title": "Manau kur kas geriau",
       "description": "Cia tiek daug ko gali prirasyti kad net nezinau :D",
       "id": "29c2f0f4-7420-44b2-b084-f0ac9bfbc5b3"
-    },
-    {
-      "id": "f4946135-608b-4213-87ec-5c4f409ef443",
-      "userId": "0",
-      "title": "tyrtyty",
-      "description": "tryrtyrtyrtyrtytr"
     }
   ]
 }

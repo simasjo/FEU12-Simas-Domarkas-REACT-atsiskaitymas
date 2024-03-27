@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UsersContext from "../../contexts/UsersContext";
-import CardsContext from "../../contexts/CardsContext";
-import { CardsActionTypes } from "../../contexts/CardsContext";
+import CardsContext, { CardsActionTypes } from "../../contexts/CardsContext";
 import Comment from "../UI/Comment";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -47,7 +46,6 @@ const StyledSection = styled.section`
 `;
 
 const OneCardPage = () => {
-
   const { id } = useParams();
   const navigation = useNavigate();
   const { loggedInUser } = useContext(UsersContext);
@@ -60,10 +58,10 @@ const OneCardPage = () => {
     },
     validationSchema: Yup.object({
       text: Yup.string()
-      .min(10, 'Comment must be at least 10 symbols length')
-      .max(500, "Comment can't be longer than 500 symbols")
-      .required('This field must be filled')
-      .trim()
+        .min(10, 'Comment must be at least 10 symbols length')
+        .max(500, "Comment can't be longer than 500 symbols")
+        .required('This field must be filled')
+        .trim()
     }),
     onSubmit: (values) => {
       const newComment = {
@@ -83,14 +81,12 @@ const OneCardPage = () => {
 
   return (
     <StyledSection>
-      {
-        cards.length &&
+      {card && (
         <>
           <div>
             <h3>{card.title}</h3>
             <p>{card.description}</p>
-            {
-              loggedInUser.id === card.userId &&
+            {loggedInUser.id === card.userId && (
               <button
                 onClick={() => {
                   setCards({
@@ -99,42 +95,41 @@ const OneCardPage = () => {
                   });
                   navigation(-1);
                 }}
-              >Delete</button>
-            }
+              >
+                Delete
+              </button>
+            )}
           </div>
           <div>
-            {
-              card.comments?.map(comment => 
-                <Comment
-                  key={comment.id}
-                  comment={comment}
-                  cardId={card.id}
-                />
-              )
-            }
+            {card.comments?.map(comment => (
+              <Comment
+                key={comment.id}
+                comment={comment}
+                cardId={card.id}
+              />
+            ))}
           </div>
-          {
-            loggedInUser &&
+          {loggedInUser && (
             <form onSubmit={formik.handleSubmit}>
               <div className="CommentDiv">
                 <label htmlFor="text">Comment:</label>
                 <textarea
-                  name="text" id="text"
+                  name="text"
+                  id="text"
                   placeholder="Write your comment..."
                   value={formik.values.text}
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                 />
-                {
-                  formik.touched.text && formik.errors.text &&
+                {formik.touched.text && formik.errors.text && (
                   <p>{formik.errors.text}</p>
-                }
+                )}
               </div>
               <input className="komentavimas" type="submit" value="Comment" />
             </form>
-          }
+          )}
         </>
-      }
+      )}
     </StyledSection>
   );
 }
