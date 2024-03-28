@@ -11,7 +11,6 @@ import Footer from './components/UI/Footer';
 import AddNewCard from './components/pages/AddNewCard';
 import OneCardPage from './components/pages/OneCardPage';
 import UserPage from './components/pages/UserPage';
-import AdminPanel from './components/pages/AdminPanel';
 
 const App = () => {
 
@@ -35,9 +34,6 @@ const App = () => {
             <Route path="register" element={<Register />}/>
             <Route path=":name" element={
             loggedInUser ? <UserPage /> : <Navigate to='/user/login' />
-            }/>
-            <Route path="adminPanel" element={
-            loggedInUser.role === 'admin' ? <AdminPanel /> : <Navigate to='/user/login' />
             }/>
           </Route>
         </Routes>

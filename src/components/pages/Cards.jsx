@@ -25,25 +25,51 @@ const Cards = () => {
   const { cards } = useContext(CardsContext);
   const { loggedInUser } = useContext(UsersContext);
   const location = useLocation();
-  const [filtered, setFiltered] = useState(false);
+  const [sortByComments, setSortByComments] = useState(false);
+  const [showAnswered, setShowAnswered] = useState(false);
 
-  const handleFilter = () => {
-    setFiltered(!filtered);
+  const handleSortByComments = () => {
+    setSortByComments(!sortByComments);
+  };
+
+  const handleToggleAnswered = () => {
+    setShowAnswered(!showAnswered);
+  };
+
+  const sortCardsByComments = (cards) => {
+    return cards.slice().sort((a, b) => {
+      if (sortByComments) {
+        return (a.comments?.length || 0) - (b.comments?.length || 0);
+      } else {
+        return (b.comments?.length || 0) - (a.comments?.length || 0);
+      }
+    });
+  };
+
+  const filterCardsByAnswered = (cards) => {
+    if (showAnswered) {
+      return cards.filter((card) => card.comments && card.comments.length > 0);
+    } else {
+      return cards;
+    }
   };
 
   return (
     <StyledSection>
       <h1>All Our Cards</h1>
       {loggedInUser && <p><Link to="/cards/addNew">Add New Card</Link></p>}
-      <p><button onClick={handleFilter}>{filtered ? 'Show All Cards' : 'Filter Commented Cards'}</button></p>
+      <p>
+        <button onClick={handleSortByComments}>
+          {sortByComments ? 'Sort by Least Comments' : 'Sort by Most Comments'}
+        </button>
+        <button onClick={handleToggleAnswered}>
+          {showAnswered ? 'Show All Cards' : 'Show Answered Cards'}
+        </button>
+      </p>
       <div>
-        {filtered
-          ? cards
-              .filter((card) => card.comments && card.comments.length > 0)
-              .map((card) => (
-                <Card key={card.id} data={card} location={location} />
-              ))
-          : cards.map((card) => <Card key={card.id} data={card} location={location} />)}
+        {sortCardsByComments(filterCardsByAnswered(cards)).map((card) => (
+          <Card key={card.id} data={card} location={location} />
+        ))}
       </div>
     </StyledSection>
   );

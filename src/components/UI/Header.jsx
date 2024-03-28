@@ -1,4 +1,4 @@
-import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import UsersContext from "../../contexts/UsersContext";
 import { useContext } from "react";
@@ -86,12 +86,6 @@ const Header = () => {
             {
                 loggedInUser ?
                 <div>
-                    {
-                        loggedInUser.role === 'admin' &&
-                       <p>
-                        <Link to={'/user/adminPanel'}>Admin Panel</Link>
-                       </p> 
-                    }
                    <p>
                     <Link to={`/user/${loggedInUser.userName}`}>{loggedInUser.userName}</Link>
                     </p> 
