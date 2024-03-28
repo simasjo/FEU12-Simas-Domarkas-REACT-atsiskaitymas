@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 const StyledHeader = styled.header`
    padding: 0 20px;
-   border-bottom : 3px solid black;
+   border-bottom : 1px solid black;
    height: 80px;
 
    display: flex;
@@ -36,10 +36,10 @@ const StyledHeader = styled.header`
             font-weight: bold;
         }
         >a.active{
-            color: green;
+            color: #0296aa;
         }
         >a:hover{
-            color: red;
+            color: #b40057;
         }
        } 
     }
@@ -63,53 +63,50 @@ const Header = () => {
     const navigate = useNavigate();
     const { loggedInUser, setLoggedInUser } = useContext(UsersContext);
 
-    return ( 
+    return (
         <StyledHeader>
             <div>
                 <Link to='/'>
-                    <img 
-                    src="https://www.freelogodesign.org/assets/img/home/icones/free.svg" 
-                    alt="freeLogo" 
-                />
+                    <img
+                        src="https://www.freelogodesign.org/assets/img/home/icones/free.svg"
+                        alt="freeLogo"
+                    />
                 </Link>
             </div>
             <nav>
                 <ul>
                     <li>
-                        <NavLink to='/'>Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/cards/allCards'>Cards</NavLink>
+                        <NavLink to='/cards/allCards'>Forumas</NavLink>
                     </li>
                 </ul>
             </nav>
             {
                 loggedInUser ?
-                <div>
-                   <p>
-                    <Link to={`/user/${loggedInUser.userName}`}>{loggedInUser.userName}</Link>
-                    </p> 
-                   <button
-                    onClick={() => {
-                        setLoggedInUser(false);
-                        navigate('/');
-                    }}
-                   >Log Out</button>
-                </div> :
-                <nav>
-                <ul>
-                    <li>
-                        <NavLink to='/user/register'>Register</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/user/login'>Login</NavLink>
-                    </li>
-                </ul>
-            </nav>
+                    <div>
+                        <p>
+                            <Link to={`/user/${loggedInUser.userName}`}>{loggedInUser.userName}</Link>
+                        </p>
+                        <button
+                            onClick={() => {
+                                setLoggedInUser(false);
+                                navigate('/');
+                            }}
+                        >Atsijungti</button>
+                    </div> :
+                    <nav>
+                        <ul>
+                            <li>
+                                <NavLink to='/user/register'>Registruotis</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/user/login'>Prisijungti</NavLink>
+                            </li>
+                        </ul>
+                    </nav>
 
             }
         </StyledHeader>
-     );
+    );
 }
- 
+
 export default Header;

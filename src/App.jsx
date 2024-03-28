@@ -26,15 +26,15 @@ const App = () => {
             <Route path='allCards' element={<Cards />} />
             <Route path='addNew' element={
               loggedInUser ? <AddNewCard /> : <Navigate to='/user/login' />
-              } />
-              <Route path=':id' element={<OneCardPage />}/>
+            } />
+            <Route path=':id' element={<OneCardPage />} />
           </Route>
           <Route path='/user'>
-            <Route path="login" element={<Login />}/>
-            <Route path="register" element={<Register />}/>
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
             <Route path=":name" element={
-            loggedInUser ? <UserPage /> : <Navigate to='/user/login' />
-            }/>
+              loggedInUser ? <UserPage /> : <Navigate to='/user/login' />
+            } />
           </Route>
         </Routes>
       </main>

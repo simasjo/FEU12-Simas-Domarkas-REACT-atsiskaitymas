@@ -23,18 +23,18 @@ const StyledSection = styled.section`
 `;
 
 const Home = () => {
-    return ( 
+    return (
         <StyledSection>
-        <h1>Home</h1>
-            <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/6/65/AK-47_type_II_noBG.png" 
-                alt="ak47" 
+            <h1>AK-47 Forumas</h1>
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/65/AK-47_type_II_noBG.png"
+                alt="ak47"
             />
             <p>
                 Sveiki atvykę į ginklų forumą, jame galėsite rasti informacijos apie populiariausius ginklus. Forumo tikslas - leisti užduoti klausimus, į juos atsakinėti ir žymėti patinkančius arba nepatinkančius atsakymus ir klausimus.
             </p>
         </StyledSection>
-     );
+    );
 }
- 
+
 export default Home;

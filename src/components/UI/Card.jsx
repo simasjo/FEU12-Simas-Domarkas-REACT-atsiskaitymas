@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   border: 1px solid black;
+  border-radius: 10px;
   padding: 10px 20px;
 
   display: flex;
@@ -31,6 +32,11 @@ const StyledDiv = styled.div`
       text-align: center;
       width: 100%;
       height: 200px;
+    }
+  }
+  .LikeStyle{
+    >button{
+      margin-right: 10px;
     }
   }
 `;
@@ -116,11 +122,11 @@ const Card = ({ data, location }) => {
     <StyledDiv>
       <h3>{data.title}</h3>
       <p>{data.description}</p>
-      <div>
-        <button onClick={handleLike}>{liked ? "Liked" : "Like"} ({likes})</button>
-        <button onClick={handleDislike}>{disliked ? "Disliked" : "Dislike"} ({dislikes})</button>
+      <div className="LikeStyle">
+        <button onClick={handleLike}>{liked ? "Patinka" : "Patinka"} ({likes})</button>
+        <button onClick={handleDislike}>{disliked ? "Nepatinka" : "Nepatinka"} ({dislikes})</button>
       </div>
-      <Link to={`/cards/${data.id}`}>More info...</Link>
+      <Link to={`/cards/${data.id}`}>Komentarai</Link>
       {location.pathname !== "/cards/allCards" && loggedInUser.id === data.userId && (
         <>
           <button
@@ -133,7 +139,7 @@ const Card = ({ data, location }) => {
           >
             Delete
           </button>
-          <button onClick={handleEdit}>Edit</button>
+          <button onClick={handleEdit}>Redaguoti</button>
         </>
       )}
       <EditModal

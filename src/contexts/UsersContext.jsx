@@ -9,32 +9,32 @@ export const UsersActionTypes = {
 }
 
 const reducer = (state, action) => {
-   switch(action.type){
+    switch (action.type) {
         case UsersActionTypes.getAll:
             return action.data;
         case UsersActionTypes.addNew:
             fetch(`http://localhost:8080/users`, {
-               method: "POST",
-               headers:{
-                    "Content-Type":"application/json"
-               },
-               body: JSON.stringify(action.data)
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(action.data)
             });
             return [...state, action.data];
         case UsersActionTypes.changeData:
-            fetch(`http://localhost:8080/users/${action.id}`,{
-              method: "PATCH",
-              headers:{
-                "Content-Type":"application/json"
-              },
-              body: JSON.stringify(action.data) 
+            fetch(`http://localhost:8080/users/${action.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(action.data)
             });
             return state.map(el => {
-                if(el.id === action.id){
-                   return {
-                    ...el,
-                    ...action.data
-                   } 
+                if (el.id === action.id) {
+                    return {
+                        ...el,
+                        ...action.data
+                    }
                 } else {
                     return el;
                 }
@@ -42,7 +42,7 @@ const reducer = (state, action) => {
         default:
             console.error(`No such reducer actions: ${action.type}`);
             return state;
-   } 
+    }
 }
 
 const UsersProvider = ({ children }) => {
@@ -68,7 +68,7 @@ const UsersProvider = ({ children }) => {
                 setLoggedInUser
             }}
         >
-            { children }
+            {children}
         </UsersContext.Provider>
     )
 }

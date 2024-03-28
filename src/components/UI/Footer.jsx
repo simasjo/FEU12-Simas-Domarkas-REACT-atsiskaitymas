@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledFooter = styled.footer`
     height: 150px;
-    border-top: 3px solid black;
+    border-top: 1px solid black;
     padding: 0 20px;
 
     display: flex;
@@ -25,13 +25,12 @@ const StyledFooter = styled.footer`
 
     >ul{
     list-style-type: none;
-    > li:first-child{
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
+    display: flex;
+    gap: 10px;
+    
     li{
         margin-bottom: 5px;
+       
         >a{
             text-decoration: none;
             >i{
@@ -44,36 +43,33 @@ const StyledFooter = styled.footer`
 `;
 
 const Footer = () => {
-    return ( 
+    return (
         <StyledFooter>
             <div>
                 <Link to='/'>
-                    <img 
-                    src="https://www.freelogodesign.org/assets/img/home/icones/free.svg" 
-                    alt="freeLogo" 
-                />
+                    <img
+                        src="https://www.freelogodesign.org/assets/img/home/icones/free.svg"
+                        alt="freeLogo"
+                    />
                 </Link>
-                <p>Coppyrights &copy; 2024 by Simas</p>
+                <p>Autorių teisės &copy; 2024 Simas</p>
             </div>
             <ul>
-                <li>Legal</li>
-                <li><Link>Terms & Conditions</Link></li>
-                <li><Link>Privacy Policy</Link></li>
-                <li><Link>Terms of use</Link></li>
+                <li><Link>Taisyklės ir sąlygos</Link></li>
+                <li><Link>Privatumo politika</Link></li>
+                <li><Link>Naudojimo salygos</Link></li>
             </ul>
             <ul>
-                <li>Socials</li>
+                <li>Socialiniai tinklai</li>
                 <li>
-                <Link><i className="bi bi-facebook"></i></Link>
-                <Link><i className="bi bi-instagram"></i></Link>
-                </li>
-                <li>
-                <Link><i className="bi bi-twitter-x"></i></Link>
-                <Link><i className="bi bi-linkedin"></i></Link>
+                    <Link><i className="bi bi-facebook"></i></Link>
+                    <Link><i className="bi bi-instagram"></i></Link>
+                    <Link><i className="bi bi-twitter-x"></i></Link>
+                    <Link><i className="bi bi-linkedin"></i></Link>
                 </li>
             </ul>
-        </StyledFooter>        
-     );
+        </StyledFooter>
+    );
 }
- 
+
 export default Footer;
