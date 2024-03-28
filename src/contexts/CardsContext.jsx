@@ -17,7 +17,7 @@ export const CardsActionTypes = {
 const reducer = (state, action) => {
   switch(action.type){
     case CardsActionTypes.getAll:
-      return action.data.map(card => ({ ...card, likes: 0, dislikes: 0 }));
+      return action.data.map(card => ({ ...card, likes: 0, dislikes: 0, hasComments: !!card.comments && card.comments.length > 0 }));
     case CardsActionTypes.addNew:
       fetch(`http://localhost:8080/cards`, {
         method: "POST",
@@ -30,7 +30,6 @@ const reducer = (state, action) => {
     case CardsActionTypes.delete:
       fetch(`http://localhost:8080/cards/${action.id}`,{ method: "DELETE" });
       return state.filter(el => el.id !== action.id);
-
     case CardsActionTypes.edit:
       const editedCardIndex = state.findIndex(el => el.id === action.id);
       if (editedCardIndex === -1) {
@@ -50,7 +49,6 @@ const reducer = (state, action) => {
         body: JSON.stringify(action.data)
       });
       return updatedCards;
-
     case CardsActionTypes.editComment:
       const cardToEditComment = state.find(el => el.id === action.cardId);
       const commentIndex = cardToEditComment.comments.findIndex(comment => comment.id === action.commentId);
@@ -81,7 +79,6 @@ const reducer = (state, action) => {
           return el;
         }
       });
-
     case CardsActionTypes.addComment:
       const cardToAddComment = state.find(el => el.id === action.cardId);
       const commentedCard = {
@@ -102,7 +99,6 @@ const reducer = (state, action) => {
           return el;
         }
       });
-
     case CardsActionTypes.deleteComment:
       const cardToChange = state.find(el => el.id === action.cardId);
       const changedCard = {
@@ -123,7 +119,6 @@ const reducer = (state, action) => {
           return el;
         }
       });
-
     case CardsActionTypes.likeCard:
       const likedCardIndex = state.findIndex(el => el.id === action.cardId);
       if (likedCardIndex === -1) {
@@ -143,7 +138,6 @@ const reducer = (state, action) => {
         }
       });
       return updatedCardsLiked;
-
     case CardsActionTypes.dislikeCard:
       const dislikedCardIndex = state.findIndex(el => el.id === action.cardId);
       if (dislikedCardIndex === -1) {
@@ -163,7 +157,6 @@ const reducer = (state, action) => {
         }
       });
       return updatedCardsDisliked;
-
     default:
       console.error(`No such reducer actions: ${action.type}`);
       return state;

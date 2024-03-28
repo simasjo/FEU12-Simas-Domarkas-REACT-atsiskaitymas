@@ -12,7 +12,7 @@
       "userName": "User",
       "password": "$2a$08$uNJ/ZzpfbHP4DElxEaJGgecEzSt7ZqLKVWrlChBbR1Fhk4nF3XtRC",
       "passwordNoHash": "User",
-      "role": "admin"
+      "role": "user"
     },
     {
       "id": "8ad29a06-5bbb-4d14-8676-d518fb14fc79",
@@ -38,25 +38,14 @@
   ],
   "cards": [
     {
-      "id": "3",
-      "userId": "1",
-      "title": "Title3",
-      "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni, iusto.",
-      "comments": [
-        {
-          "text": "ramtngbc v",
-          "id": "d410a6d1-cc6f-45f0-984a-c7e9295b0d29",
-          "authorId": "0"
-        }
-      ],
-      "likes": 0,
-      "dislikes": 0
-    },
-    {
       "id": "6608bb05-29f2-4687-985a-31066599491b",
       "userId": "1",
       "title": "hihihaha",
-      "description": "super not fun\n"
+      "description": "super not fun\n",
+      "likes": 0,
+      "dislikes": 0,
+      "hasComments": false,
+      "comments": []
     },
     {
       "title": "DFGDGDFGDFG",
@@ -67,13 +56,27 @@
           "text": "sfsdfgsfgfdgfdg",
           "id": "65012bff-62f1-4557-8c05-021c0463bcfb",
           "authorId": "0"
+        },
+        {
+          "text": "sdfsdfsdfsdfs",
+          "id": "66a44289-69ea-4044-9526-42c4541bd4dc",
+          "authorId": "0"
         }
-      ]
+      ],
+      "likes": 0,
+      "dislikes": 0,
+      "hasComments": true
     },
     {
-      "title": "Manau kur kas geriau",
-      "description": "Cia tiek daug ko gali prirasyti kad net nezinau :D",
-      "id": "29c2f0f4-7420-44b2-b084-f0ac9bfbc5b3"
+      "id": "d2895f56-3544-4ce9-825a-20c57ddda558",
+      "userId": "1",
+      "title": "cvbcvb",
+      "description": "cvbcvbcvbc"
+    },
+    {
+      "title": "Admino kortele",
+      "description": "taip taip taip taip",
+      "id": "3d19efb3-b0a7-493e-8adc-7dc15e26c091"
     }
   ]
 }
