@@ -34,6 +34,13 @@
       "password": "$2a$08$SI.1Dm76QRtTB5/NRRe1lu98ugpZ8l.or6zsomfblhySfJz6v68b6",
       "passwordNoHash": "Deiviukas123*",
       "role": "user"
+    },
+    {
+      "id": "32f1f90f-0cb4-4303-8f82-3e98efd23f84",
+      "userName": "Bronius",
+      "password": "$2a$08$Mjskq4Ga6zyLyZEbekubi.7rc1QGEJ.EYDjbqPZY.DAIQRswhlpka",
+      "passwordNoHash": "Bronius123*",
+      "role": "user"
     }
   ],
   "cards": [
@@ -77,6 +84,59 @@
       "title": "Admino kortele",
       "description": "taip taip taip taip",
       "id": "3d19efb3-b0a7-493e-8adc-7dc15e26c091"
+    },
+    {
+      "id": "3150ae87-f142-45af-be0d-f0ce4f77f1a1",
+      "userId": "0",
+      "title": "admino kortele ",
+      "description": "Tikrai taip ir ne kitaip",
+      "comments": [
+        {
+          "text": "dfddhdfhfh",
+          "id": "d721555f-dfdc-45d4-969c-303cc4eb9619",
+          "authorId": "1"
+        },
+        {
+          "text": "hfghgfhfghfghfgh",
+          "id": "a22ea5c3-2f08-49c8-8ee3-8e07b4e5c203",
+          "authorId": "1"
+        },
+        {
+          "text": "fghfghfghfghfgh",
+          "id": "83d911de-143e-40ff-9906-b39f725b205b",
+          "authorId": "1"
+        },
+        {
+          "text": "gfhfghfghfghfghfg",
+          "id": "a57201d1-d1cc-42df-a105-30241689f018",
+          "authorId": "1"
+        },
+        {
+          "text": "fghfghfghfgh",
+          "id": "c9097a3c-8ae6-419b-81ac-1dbca6a0176c",
+          "authorId": "1"
+        },
+        {
+          "text": "fdgdfgdfggdfgdf",
+          "id": "b7c8d657-c6f8-4929-94af-4f86ec10b324",
+          "authorId": "0"
+        }
+      ],
+      "likes": 0,
+      "dislikes": 0,
+      "hasComments": true
+    },
+    {
+      "id": "7f01e058-4dbb-421a-968a-cb37f56c4af1",
+      "userId": "32f1f90f-0cb4-4303-8f82-3e98efd23f84",
+      "title": "broniaus kortele",
+      "description": "cia rasi daug daug info"
+    },
+    {
+      "id": "c90985fc-b822-4f42-8056-ea0a464998ce",
+      "userId": "0",
+      "title": "sfgdgfg",
+      "description": "dfgdfgfgfgfdg"
     }
   ]
 }
