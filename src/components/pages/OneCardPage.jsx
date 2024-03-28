@@ -13,6 +13,7 @@ const StyledSection = styled.section`
 
   > div {
     border: 1px solid black;
+    background-color: #fce7e7;
     border-radius: 20px;
     padding: 10px 20px;
     display: flex;

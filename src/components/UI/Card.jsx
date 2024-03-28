@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   border: 1px solid black;
+  background-color: #fce7e7;
   border-radius: 10px;
   padding: 10px 20px;
 

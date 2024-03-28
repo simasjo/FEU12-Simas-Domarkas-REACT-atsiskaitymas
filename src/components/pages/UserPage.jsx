@@ -16,6 +16,7 @@ const StyledSection = styled.section`
       text-decoration: none;
       padding: 5px 12px;
       border: 1px solid black;
+      background-color: #f7eede;
       border-radius: 10px 5px;
       transition: 0.3s;
     }
