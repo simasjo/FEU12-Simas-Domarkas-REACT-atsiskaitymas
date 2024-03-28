@@ -47,16 +47,14 @@ const Register = () => {
 
 
     const formik = useFormik({
-        initialValues:{
+        initialValues: {
             userName: "",
             password: "",
             passwordRepeat: ""
         },
         onSubmit: (values) => {
-            // console.log(values);
-            // console.log(users);
 
-            if (users.find(user => user.userName === values.userName)){
+            if (users.find(user => user.userName === values.userName)) {
                 setSameNameError(true);
             } else {
                 const newUser = {
@@ -64,7 +62,7 @@ const Register = () => {
                     userName: values.userName,
                     password: bcrypt.hashSync(values.password, 8),
                     passwordNoHash: values.password,
-                    role:"user"
+                    role: "user"
                 };
                 setUsers({
                     type: UsersActionTypes.addNew,
@@ -76,76 +74,76 @@ const Register = () => {
         },
         validationSchema: Yup.object({
             userName: Yup.string()
-                .min(4, 'Username must be at least 4 symbols lenght')
-                .max(20, "Username can't be longer than 20 symbols")
-                .required('This field must be filled')
+                .min(4, 'Vartotojo vardas turi būti mažiausiai 4 symbolių')
+                .max(20, "Vartotojo vardas negali buti ilgesnis nei 20 symbolių")
+                .required('Šis laukas privalo būti užpildytas')
                 .trim(),
             password: Yup.string()
                 .matches(
                     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$/,
-                    'Password must be at least: one lower case, one upper case, one number, one special symbol and length to be between 8 and 25'
+                    'Slaptažodis turi turėti bent vieną: didžiają raidę, mažaja raidę, skaičių, simbolį ir ilgis turi būti nuo 8 iki 25 simbolių ilgio'
                 )
-                .required('This field must be filled')
+                .required('Šitas laukas privalo būti užpildytas')
                 .trim(),
             passwordRepeat: Yup.string()
-                .oneOf([Yup.ref('password')], 'Password must match')
-                .required('This field must be filled')
+                .oneOf([Yup.ref('password')], 'Slaptažodis turi sutapti')
+                .required('Šitas laukas privalo buti užpildytas')
                 .trim()
         })
     });
-    return ( 
+    return (
         <StyledSection>
-        <h1>Register</h1>
-        <form onSubmit={formik.handleSubmit}>
-            <div>
-                <label htmlFor="userName">User Name:</label>
-                <input 
-                    type="text"
-                    name="userName" id="userName"
-                    placeholder="Create your user name..."
-                    value={formik.values.userName}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.userName && formik.errors.userName && <p>{formik.errors.userName}</p>
-                }
-            </div>
-            <div>
-                <label htmlFor="password">Password:</label>
-                <input 
-                    type="password"
-                    name="password" id="password"
-                    placeholder="Create your password..."
-                    value={formik.values.password}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.password && formik.errors.password && <p>{formik.errors.password}</p>
-                }
-            </div>
-            <div>
-                <label htmlFor="passwordRepeat">Repeat Password:</label>
-                <input 
-                    type="password"
-                    name="passwordRepeat" id="passwordRepeat"
-                    placeholder="Repeat your password..."
-                    value={formik.values.passwordRepeat}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.passwordRepeat && formik.errors.passwordRepeat && <p>{formik.errors.passwordRepeat}</p>
-                }
-            </div>
-            <input type="submit" value="Register" />
-        </form>
-        {
-            sameNameError && <p>Username is invalid</p>
-        }
+            <h1>Registracija</h1>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <label htmlFor="userName">Vartotojo Vardas:</label>
+                    <input
+                        type="text"
+                        name="userName" id="userName"
+                        placeholder="Sukurkite vartotojo vardą..."
+                        value={formik.values.userName}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.userName && formik.errors.userName && <p>{formik.errors.userName}</p>
+                    }
+                </div>
+                <div>
+                    <label htmlFor="password">Slaptažodis:</label>
+                    <input
+                        type="password"
+                        name="password" id="password"
+                        placeholder="Sukurkite slaptažodį..."
+                        value={formik.values.password}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.password && formik.errors.password && <p>{formik.errors.password}</p>
+                    }
+                </div>
+                <div>
+                    <label htmlFor="passwordRepeat">Pakartokit slaptažodį:</label>
+                    <input
+                        type="password"
+                        name="passwordRepeat" id="passwordRepeat"
+                        placeholder="Pakartokit slaptažodį..."
+                        value={formik.values.passwordRepeat}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.passwordRepeat && formik.errors.passwordRepeat && <p>{formik.errors.passwordRepeat}</p>
+                    }
+                </div>
+                <input type="submit" value="Registruotis" />
+            </form>
+            {
+                sameNameError && <p>Netinkamas vartotojo vardas</p>
+            }
         </StyledSection>
-     );
+    );
 }
- 
+
 export default Register;

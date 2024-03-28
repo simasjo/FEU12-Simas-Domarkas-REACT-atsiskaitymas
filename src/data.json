@@ -41,102 +41,86 @@
       "password": "$2a$08$Mjskq4Ga6zyLyZEbekubi.7rc1QGEJ.EYDjbqPZY.DAIQRswhlpka",
       "passwordNoHash": "Bronius123*",
       "role": "user"
+    },
+    {
+      "id": "113c623f-ac11-49df-8d2e-4c7e68d515b6",
+      "userName": "Jonas1",
+      "password": "$2a$08$0xtynWvoFtp.vbDOA7/6RO5Pn9htZ1P9bnTHcsocjTezg28g3VPqC",
+      "passwordNoHash": "Jonas123*",
+      "role": "user"
     }
   ],
   "cards": [
     {
+      "title": "Heckler & Koch HK416",
+      "description": "HK416 yra standartinis Norvegijos ginkluotųjų pajėgų ir JAV jūrų pėstininkų korpuso puolimo ginklas (pavadintas M27), kurį Prancūzijos ginkluotosios pajėgos pasirinko pakeisti FAMAS. Kiti HK416 naudotojai yra Vokietijos armija ir Airijos armijos reindžerio sparnas, taip pat JAV karinio jūrų laivyno SEAL Team Six, kurie jį panaudojo 2011 m. nužudydami Osamą bin Ladeną.",
       "id": "6608bb05-29f2-4687-985a-31066599491b",
-      "userId": "1",
-      "title": "hihihaha",
-      "description": "super not fun\n",
+      "likes": 0,
+      "dislikes": 0,
+      "hasComments": true,
+      "comments": [
+        {
+          "text": "Taip šitas ginklas yra tiesiog nuostabus.",
+          "id": "607cf814-9117-4dc6-952b-6644193f27d1",
+          "authorId": "1"
+        },
+        {
+          "text": "Osamui šitas ginklas nepatiko",
+          "id": "9eee56a0-e3e7-41ac-8cd6-8cd42bac128f",
+          "authorId": "8ad29a06-5bbb-4d14-8676-d518fb14fc79"
+        }
+      ]
+    },
+    {
+      "title": "AK-47",
+      "description": "Šturmo šautuvas (automatas) sukurtas (kopijuotas) 1947 m. Sovietų Sąjungoje. Ginklas šaltojo karo metu buvo naudojamas Varšuvos pakto narių bei su jomis glaudžiai politiniais ryšiais susijusių valstybių kariuomenėse ir iki šių laikų išlieka vienas populiariausių ginklų rytų Europoje, Afrikoje bei Azijoje.",
+      "id": "d2895f56-3544-4ce9-825a-20c57ddda558",
+      "likes": 0,
+      "dislikes": 0,
+      "hasComments": true,
+      "comments": [
+        {
+          "text": "Labai taiklus ir patikimas ginklas",
+          "id": "e73b448c-ac57-4950-adbb-78db58a8e9de",
+          "authorId": "0"
+        },
+        {
+          "text": "Šaudo net po vandeniu",
+          "id": "61f9ff3c-33ca-419c-b2e1-98a919859aac",
+          "authorId": "1"
+        },
+        {
+          "text": "Pats geriausias ginklas pasaulyje",
+          "id": "ca939d0b-0f70-47da-bbf6-867f72ff4443",
+          "authorId": "8ad29a06-5bbb-4d14-8676-d518fb14fc79"
+        },
+        {
+          "text": "Super duper 123",
+          "id": "ce3b056c-a55a-4df7-9214-b57d2773a9ab",
+          "authorId": "113c623f-ac11-49df-8d2e-4c7e68d515b6"
+        }
+      ]
+    },
+    {
+      "title": "Barrett M82",
+      "description": "Barrett M82 (JAV kariuomenės standartizuotas kaip M107) yra atatranka valdomas, pusiau automatinis priešlektuvinis ginklas, sukurtas amerikiečių kompanijos Barrett Firearms Manufacturing.",
+      "id": "7f01e058-4dbb-421a-968a-cb37f56c4af1",
       "likes": 0,
       "dislikes": 0,
       "hasComments": false,
-      "comments": []
-    },
-    {
-      "title": "DFGDGDFGDFG",
-      "description": "DFGDFGDFGDFGDFGDFGDFGDFGFVBNVBNVBFVHFDG555222",
-      "id": "9e00fdde-a7a0-4ef6-a4ee-3d870ff68c45",
       "comments": [
         {
-          "text": "sfsdfgsfgfdgfdg",
-          "id": "65012bff-62f1-4557-8c05-021c0463bcfb",
-          "authorId": "0"
-        },
-        {
-          "text": "sdfsdfsdfsdfs",
-          "id": "66a44289-69ea-4044-9526-42c4541bd4dc",
-          "authorId": "0"
+          "text": "Šitam ginklui lygių nėra",
+          "id": "104500ec-48ca-47b3-a674-115c51e0bb4b",
+          "authorId": "8ad29a06-5bbb-4d14-8676-d518fb14fc79"
         }
-      ],
-      "likes": 0,
-      "dislikes": 0,
-      "hasComments": true
+      ]
     },
     {
-      "id": "d2895f56-3544-4ce9-825a-20c57ddda558",
-      "userId": "1",
-      "title": "cvbcvb",
-      "description": "cvbcvbcvbc"
-    },
-    {
-      "title": "Admino kortele",
-      "description": "taip taip taip taip",
-      "id": "3d19efb3-b0a7-493e-8adc-7dc15e26c091"
-    },
-    {
-      "id": "3150ae87-f142-45af-be0d-f0ce4f77f1a1",
+      "id": "e18e133b-ca6f-4049-bc64-380decd5044b",
       "userId": "0",
-      "title": "admino kortele ",
-      "description": "Tikrai taip ir ne kitaip",
-      "comments": [
-        {
-          "text": "dfddhdfhfh",
-          "id": "d721555f-dfdc-45d4-969c-303cc4eb9619",
-          "authorId": "1"
-        },
-        {
-          "text": "hfghgfhfghfghfgh",
-          "id": "a22ea5c3-2f08-49c8-8ee3-8e07b4e5c203",
-          "authorId": "1"
-        },
-        {
-          "text": "fghfghfghfghfgh",
-          "id": "83d911de-143e-40ff-9906-b39f725b205b",
-          "authorId": "1"
-        },
-        {
-          "text": "gfhfghfghfghfghfg",
-          "id": "a57201d1-d1cc-42df-a105-30241689f018",
-          "authorId": "1"
-        },
-        {
-          "text": "fghfghfghfgh",
-          "id": "c9097a3c-8ae6-419b-81ac-1dbca6a0176c",
-          "authorId": "1"
-        },
-        {
-          "text": "fdgdfgdfggdfgdf",
-          "id": "b7c8d657-c6f8-4929-94af-4f86ec10b324",
-          "authorId": "0"
-        }
-      ],
-      "likes": 0,
-      "dislikes": 0,
-      "hasComments": true
-    },
-    {
-      "id": "7f01e058-4dbb-421a-968a-cb37f56c4af1",
-      "userId": "32f1f90f-0cb4-4303-8f82-3e98efd23f84",
-      "title": "broniaus kortele",
-      "description": "cia rasi daug daug info"
-    },
-    {
-      "id": "c90985fc-b822-4f42-8056-ea0a464998ce",
-      "userId": "0",
-      "title": "sfgdgfg",
-      "description": "dfgdfgfgfgfdg"
+      "title": "SIG SG-552 Commando",
+      "description": "SG-552 Commando buvo pristatytas 1998 m. ir yra trumpiausia SG-550 serijos kovinių ginklų versija. Jis skiriasi nuo SG-550 tuo, kad turi daug trumpesnį vamzdį ir rankų apsaugą, o atbulinė spyruoklė sumontuota kitaip. Pastaraisiais gamybos metais jį buvo galima įsigyti su ilgesne statine kaip SG-552 LB. Atnaujintas naudojant SG-553 atbulinės eigos spyruoklę, jis žinomas kaip SG-552 A1."
     }
   ]
 }

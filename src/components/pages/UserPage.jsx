@@ -45,25 +45,25 @@ const UserPage = () => {
 
   return (
     <StyledSection>
-      <h1>All {loggedInUser.userName} Cards</h1>
-      <p><Link to="/cards/addNew">Add New Card</Link></p>
+      <h1>Visi {loggedInUser.userName} Komentarai</h1>
+      <p><Link to="/cards/addNew">Pridėti naują komentarą</Link></p>
       {
         userCards.length ?
-        <div>
-          {
-            userCards.map(card => 
-              <Card
-                key={card.id}
-                data={card}
-                location={location}
-              />
-            )
-          }
-        </div> :
-        <p>You have yet to create any cards...</p>
+          <div>
+            {
+              userCards.map(card =>
+                <Card
+                  key={card.id}
+                  data={card}
+                  location={location}
+                />
+              )
+            }
+          </div> :
+          <p>Tu dar nesukurei komentarų...</p>
       }
     </StyledSection>
   );
 }
- 
+
 export default UserPage;

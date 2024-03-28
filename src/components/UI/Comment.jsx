@@ -1,6 +1,21 @@
 import React, { useContext, useState, useEffect } from "react";
 import UsersContext from "../../contexts/UsersContext";
 import CardsContext, { CardsActionTypes } from "../../contexts/CardsContext";
+import styled from 'styled-components';
+
+const StyledDiv = styled.section`
+display: flex;
+
+>button{
+  margin-right:10px;
+  margin-bottom:10px;
+}
+>textarea{
+  height: 50px;
+  width: 150px;
+  margin-right:10px;
+}
+`;
 
 const Comment = ({ comment, cardId }) => {
 
@@ -26,7 +41,7 @@ const Comment = ({ comment, cardId }) => {
     if (loggedInUser.id === comment.authorId) {
       setIsEditModalOpen(true);
     } else {
-      console.error('You are not allowed to edit this comment.');
+      console.error('Jūs neturite galimybės redaguoti komentaro.');
     }
   };
 
@@ -35,17 +50,13 @@ const Comment = ({ comment, cardId }) => {
       setLikes(likes + 1);
       setLiked(true);
     }
-    // Update the comment's like count on the server
-    // This should be done similarly to how you update the comment's other properties
   };
 
   const handleDislike = () => {
     if (!disliked) {
       setDislikes(dislikes + 1);
       setDisliked(true);
-    } 
-    // Update the comment's dislike count on the server
-    // This should be done similarly to how you update the comment's other properties
+    }
   };
 
 
@@ -63,41 +74,41 @@ const Comment = ({ comment, cardId }) => {
 
   const EditModal = ({ isOpen, onClose, onSave }) => {
     const [editedText, setEditedText] = useState(comment.text);
-  
+
     const handleSave = () => {
       onSave(editedText);
     };
-  
+
     return isOpen ? (
-      <div className="edit-modal">
+      <StyledDiv>
         <textarea value={editedText} onChange={(e) => setEditedText(e.target.value)} />
-        <button onClick={handleSave}>Save</button>
-        <button onClick={onClose}>Cancel</button>
-      </div>
+        <button onClick={handleSave}>Išsaugoti</button>
+        <button onClick={onClose}>Atšaukti</button>
+      </StyledDiv >
     ) : null;
   };
 
   return (
     <>
       {
-        users.length && 
+        users.length &&
         <div>
-          <p>Comment by: {author.userName}</p>
+          <p>Komentarą sukūrė: {author.userName}</p>
           <p>{comment.text}</p>
-          <div>
-            <button onClick={handleLike}>{liked ? 'Liked' : 'Like'} ({likes})</button>
-            <button onClick={handleDislike}>{disliked ? 'Disliked' : 'Dislike'} ({dislikes})</button>
-          </div>
+          <StyledDiv>
+            <button onClick={handleLike}>{liked ? 'Patinka' : 'Patinka'} ({likes})</button>
+            <button onClick={handleDislike}>{disliked ? 'Nepatinka' : 'Nepatinka'} ({dislikes})</button>
+          </StyledDiv >
           {
             loggedInUser.id === comment.authorId &&
-            <>
-              <button onClick={()=> setCards({
+            <StyledDiv>
+              <button onClick={() => setCards({
                 type: CardsActionTypes.deleteComment,
                 commentId: comment.id,
                 cardId: cardId
-              })}>Delete</button>
-              <button onClick={handleEdit}>Edit</button>
-            </>
+              })}>Ištrinti</button>
+              <button className="mygtukaii" onClick={handleEdit}>Redaguoti</button>
+            </StyledDiv>
           }
           <EditModal
             isOpen={isEditModalOpen}

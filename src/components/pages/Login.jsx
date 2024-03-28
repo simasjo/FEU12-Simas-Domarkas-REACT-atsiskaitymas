@@ -44,14 +44,14 @@ const Login = () => {
     const { users, setLoggedInUser } = useContext(UsersContext);
 
     const formik = useFormik({
-        initialValues:{
+        initialValues: {
             userName: "",
             password: ""
         },
         onSubmit: (values) => {
             const loggedInUser = users.find(user => user.userName === values.userName && bcrypt.compareSync(values.password, user.password));
 
-            if(loggedInUser === undefined){
+            if (loggedInUser === undefined) {
                 setWrongCredentials(true);
             } else {
                 setLoggedInUser(loggedInUser);
@@ -61,55 +61,55 @@ const Login = () => {
         },
         validationSchema: Yup.object({
             userName: Yup.string()
-                .required('This fields must be filled')
+                .required('Šitas langas turi būri užpildytas')
                 .trim(),
-                password: Yup.string()
-                .required('This fields must be filled')
+            password: Yup.string()
+                .required('Šitas langas turi būri užpildytas')
                 .trim()
         })
     });
 
-    return ( 
+    return (
         <StyledSection>
-        <h1>Login</h1>
-        <form onSubmit={formik.handleSubmit}>
-            <div>
-                <label htmlFor="userName">User name:</label>
-                <input 
-                    type="text" 
-                    name="userName" id="userName"
-                    placeholder="Enter your user name..."
-                    value={formik.values.userName}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.userName && formik.errors.userName &&
-                    <p>{formik.errors.userName}</p>
-                }
-            </div>
-            <div>
-                <label htmlFor="password">Password:</label>
-                <input 
-                    type="password" 
-                    name="password" id="password"
-                    placeholder="Enter your password..."
-                    value={formik.values.password}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.password && formik.errors.password &&
-                    <p>{formik.errors.password}</p>
-                }
-            </div>
-            <input type="submit" value="LogIn"/>
-        </form>
-        {
-            wrongCredentials && <p>No user with such username or password combination</p>
-        }
+            <h1>Prisijungti</h1>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <label htmlFor="userName">Vartotojo vardas:</label>
+                    <input
+                        type="text"
+                        name="userName" id="userName"
+                        placeholder="Įveskite vartotojo vardą..."
+                        value={formik.values.userName}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.userName && formik.errors.userName &&
+                        <p>{formik.errors.userName}</p>
+                    }
+                </div>
+                <div>
+                    <label htmlFor="password">Slaptažodis:</label>
+                    <input
+                        type="password"
+                        name="password" id="password"
+                        placeholder="Įveskite slaptažodį..."
+                        value={formik.values.password}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.password && formik.errors.password &&
+                        <p>{formik.errors.password}</p>
+                    }
+                </div>
+                <input type="submit" value="Prisijungti" />
+            </form>
+            {
+                wrongCredentials && <p>Nėra tokio vartotojo vardo arba slaptažodžio</p>
+            }
         </StyledSection>
-     );
+    );
 }
- 
+
 export default Login;

@@ -11,6 +11,9 @@ const StyledSection = styled.section`
   }
   > p {
     text-align: center;
+    >button{
+      margin-right: 10px;
+    }
   }
   > div {
     margin: 0 auto;
@@ -56,14 +59,14 @@ const Cards = () => {
 
   return (
     <StyledSection>
-      <h1>All Our Cards</h1>
-      {loggedInUser && <p><Link to="/cards/addNew">Add New Card</Link></p>}
+      <h1>Komentarai</h1>
+      {loggedInUser && <p><Link to="/cards/addNew">Pridėti naują komentarą</Link></p>}
       <p>
         <button onClick={handleSortByComments}>
-          {sortByComments ? 'Sort by Least Comments' : 'Sort by Most Comments'}
+          {sortByComments ? 'Rykiuoti mažiausiai komentuotus' : 'Rykiuoti daugiausiai komentuotus'}
         </button>
         <button onClick={handleToggleAnswered}>
-          {showAnswered ? 'Show All Cards' : 'Show Answered Cards'}
+          {showAnswered ? 'Rodyti visus komentarus' : 'Rodyti pakomentuotus komentarus'}
         </button>
       </p>
       <div>

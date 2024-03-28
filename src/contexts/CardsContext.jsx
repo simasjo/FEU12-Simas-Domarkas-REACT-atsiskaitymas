@@ -15,20 +15,20 @@ export const CardsActionTypes = {
 }
 
 const reducer = (state, action) => {
-  switch(action.type){
+  switch (action.type) {
     case CardsActionTypes.getAll:
       return action.data.map(card => ({ ...card, likes: 0, dislikes: 0, hasComments: !!card.comments && card.comments.length > 0 }));
     case CardsActionTypes.addNew:
       fetch(`http://localhost:8080/cards`, {
         method: "POST",
         headers: {
-          "Content-Type":"application/json"
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(action.data)
       });
       return [...state, action.data];
     case CardsActionTypes.delete:
-      fetch(`http://localhost:8080/cards/${action.id}`,{ method: "DELETE" });
+      fetch(`http://localhost:8080/cards/${action.id}`, { method: "DELETE" });
       return state.filter(el => el.id !== action.id);
     case CardsActionTypes.edit:
       const editedCardIndex = state.findIndex(el => el.id === action.id);
@@ -85,15 +85,15 @@ const reducer = (state, action) => {
         ...cardToAddComment,
         comments: cardToAddComment.comments ? [...cardToAddComment.comments, action.comment] : [action.comment]
       };
-      fetch(`http://localhost:8080/cards/${action.cardId}`,{
+      fetch(`http://localhost:8080/cards/${action.cardId}`, {
         method: "PUT",
-        headers:{
-          "Content-Type":"application/json"
+        headers: {
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(commentedCard)
       });
       return state.map(el => {
-        if(el.id === action.cardId){
+        if (el.id === action.cardId) {
           return commentedCard;
         } else {
           return el;
@@ -105,15 +105,15 @@ const reducer = (state, action) => {
         ...cardToChange,
         comments: cardToChange.comments.filter(comment => comment.id !== action.commentId)
       };
-      fetch(`http://localhost:8080/cards/${action.cardId}`,{
+      fetch(`http://localhost:8080/cards/${action.cardId}`, {
         method: "PUT",
-        headers:{
-          "Content-Type":"application/json"
+        headers: {
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(changedCard)
       });
       return state.map(el => {
-        if(el.id === action.cardId){
+        if (el.id === action.cardId) {
           return changedCard;
         } else {
           return el;
@@ -129,7 +129,7 @@ const reducer = (state, action) => {
       updatedCardsLiked[likedCardIndex] = {
         ...updatedCardsLiked[likedCardIndex],
         likes: (updatedCardsLiked[likedCardIndex].likes || 0) + 1,
-        dislikes: updatedCardsLiked[likedCardIndex].dislikes || 0 // Nepakeiskite nepatikti skaičiaus
+        dislikes: updatedCardsLiked[likedCardIndex].dislikes || 0
       };
       fetch(`http://localhost:8080/cards/${action.cardId}/like`, {
         method: "PUT",
@@ -147,7 +147,7 @@ const reducer = (state, action) => {
       const updatedCardsDisliked = [...state];
       updatedCardsDisliked[dislikedCardIndex] = {
         ...updatedCardsDisliked[dislikedCardIndex],
-        likes: updatedCardsDisliked[dislikedCardIndex].likes || 0, // Nepakeiskite patikti skaičiaus
+        likes: updatedCardsDisliked[dislikedCardIndex].likes || 0,
         dislikes: (updatedCardsDisliked[dislikedCardIndex].dislikes || 0) + 1
       };
       fetch(`http://localhost:8080/cards/${action.cardId}/dislike`, {
@@ -167,23 +167,23 @@ const CardsProvider = ({ children }) => {
 
   const [cards, setCards] = useReducer(reducer, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`http://localhost:8080/cards`)
       .then(res => res.json())
       .then(data => setCards({
         type: CardsActionTypes.getAll,
         data: data
       }));
-  },[]);
+  }, []);
 
-  return(
+  return (
     <CardsContext.Provider
       value={{
         cards,
         setCards
       }}
     >
-      { children }
+      {children}
     </CardsContext.Provider>
   )
 }

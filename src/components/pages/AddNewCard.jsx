@@ -15,7 +15,7 @@ const StyledSection = styled.section`
     padding-top: 70px;
 
     > h1{
-        font-size: 3rem;
+        font-size: 2rem;
     }
     > form{
         display: flex;
@@ -33,7 +33,6 @@ const StyledSection = styled.section`
                 grid-column: span 3;
                 color: red;
                 text-align: center;
-
             }
         }
     }
@@ -56,7 +55,7 @@ const AddNewCard = () => {
                 userId: loggedInUser.id,
                 ...values
             }
-            // console.log(newCard);
+
             setCards({
                 type: CardsActionTypes.addNew,
                 data: newCard
@@ -65,55 +64,55 @@ const AddNewCard = () => {
         },
         validationSchema: Yup.object({
             title: Yup.string()
-                .min(5, 'Title must be at least 5 sybols lenght')
-                .max(50, "Title can't be longer than 50 symbols")
-                .required('This field must be filled')
+                .min(5, 'Pavadinimas turi būti bent 5 symbolių ilgio')
+                .max(50, "Pavadinimas neturi būti ilgesnis nei 50 symbolių")
+                .required('Šitas laukas privalo būti užpildytas')
                 .trim(),
             description: Yup.string()
-                .min(5, 'Description must be at least 5 sybols lenght')
-                .max(500, "Description can't be longer than 500 symbols")
-                .required('This field must be filled')
+                .min(5, 'Komentaras turi būti bent 5 symbolių')
+                .max(500, "Komentaras negali būti ilgesnis nei 500 symbolių")
+                .required('Šitas laukas privalo būti užpildytas')
                 .trim()
         })
     });
 
-    return ( 
+    return (
         <StyledSection>
-        <h1>Add New Card</h1>
-        <form onSubmit={formik.handleSubmit}>
-            <div>
-                <label htmlFor="title">Title:</label>
-                <input 
-                    type="text" 
-                    name="title" id="title"
-                    placeholder="Write card title..."
-                    value={formik.title}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.title && formik.errors.title &&
-                    <p>{formik.errors.title}</p>
-                }
-            </div>
-            <div>
-                <label htmlFor="description">Description:</label>
-                <textarea 
-                    name="description" id="description"
-                    placeholder="Write card description..."
-                    value={formik.description}
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                />
-                {
-                    formik.touched.description && formik.errors.description &&
-                    <p>{formik.errors.description}</p>
-                }
-            </div>
-            <input type="submit" value="Add New Card" />
-        </form>
+            <h1>Pridėti naują komentarą</h1>
+            <form onSubmit={formik.handleSubmit}>
+                <div>
+                    <label htmlFor="title">Pavadinimas:</label>
+                    <input
+                        type="text"
+                        name="title" id="title"
+                        placeholder="Parašykite pavadinimą..."
+                        value={formik.title}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.title && formik.errors.title &&
+                        <p>{formik.errors.title}</p>
+                    }
+                </div>
+                <div>
+                    <label htmlFor="description">Komentaras:</label>
+                    <textarea
+                        name="description" id="description"
+                        placeholder="Parašykite komentarą..."
+                        value={formik.description}
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                    />
+                    {
+                        formik.touched.description && formik.errors.description &&
+                        <p>{formik.errors.description}</p>
+                    }
+                </div>
+                <input type="submit" value="Pridėti komentarą" />
+            </form>
         </StyledSection>
-     );
+    );
 }
- 
+
 export default AddNewCard;
